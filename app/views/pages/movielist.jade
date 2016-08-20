@@ -1,0 +1,42 @@
+extends ../layout
+
+block content
+    .container
+        .row
+            table.table.table-bordered.table-stripped.table-hover
+                thead
+                    tr
+                        th.text-center 电影名字
+                        th.text-center 导演
+                        th.text-center 国家
+                        th.text-center 语言
+                        th.text-center 上映时间
+                        th.text-center 录入时间
+                        th.text-center 简介
+                        th.text-center 查看
+                        th.text-center 更新
+                        th.text-center 删除
+                tbody
+                    each item in movies
+                        tr.text-center(class="item-id-#{item._id}")
+                            td= item.title
+                            td= item.doctor
+                            td= item.country
+                            td= item.language
+                            td= item.show_year
+                            td= moment(item.meta.createAt).format('YYYY-MM-DD HH:MM:SS')
+                            td= item.summary
+                            td: a(target="_blank" href="/movie/detail/#{item._id}") 查看
+                            td: a(target="_blank" href="/admin/movie/update/#{item._id}") 修改
+                            td: button.btn.btn-danger.del(type="button" data-id="#{item._id}") 删除
+
+
+
+
+block js
+    script(src="/src/js/movielist.js")
+
+
+
+
+

@@ -1,0 +1,18 @@
+extends ../layout
+
+block content
+    .container
+        .row
+            .col-sm-offset-7.col-sm-5
+                form.form-horizontal(method="post" action="/user/signup/vetify")
+                    .form-group
+                        label.col-sm-2.text-right(for="signup-username") 用户名
+                        .col-sm-8
+                            input#signup-username.form-control(type="text" name="user[username]")
+                    .form-group
+                        label.col-sm-2.text-right(for="signup-password") 密码
+                        .col-sm-8
+                            input#signup-password.form-control(type="password" name="user[password]")
+                    .form-group
+                        .col-sm-offset-2.col-sm-8
+                            button.btn.btn-success(type="submit") 注册
